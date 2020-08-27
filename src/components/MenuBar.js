@@ -25,29 +25,39 @@ const MenuBar = (props) => {
     props.changeSelectedItem(newItem);
   }
 
+  const setActive = (itemName) => {
+    return props.selectedItem === itemName ? 'active' : ''
+  }
+
   return (
     <div className="ui four item menu">
       <a 
-        className={`item ${props.selectedItem === 'profile' ? 'active' : ''}`}
+        // className={`item ${props.selectedItem === 'profile' ? 'active' : ''}`}
+        className={`item ${setActive('profile')}`}
         id="profile"
         onClick={handleOnClick} >
         <i className="user large icon" id="profile"/>
       </a>
 
       <a 
-        className={`item ${props.selectedItem === 'photo' ? 'active' : ''}`}
+        // className={`item ${props.selectedItem === 'photo' ? 'active' : ''}`}
+        className={`item ${setActive('photo')}`}
         id="photo"
         onClick={handleOnClick} >
         <i className="photo large icon" id="photo" />
       </a>
 
-      <a className={`item ${props.selectedItem === 'cocktail' ? 'active' : ''}`} 
+      <a 
+        // className={`item ${props.selectedItem === 'cocktail' ? 'active' : ''}`} 
+        className={`item ${setActive('cocktail')}`}
         id="cocktail" 
         onClick={handleOnClick}>
         <i className="cocktail large icon" id="cocktail" />
       </a>
 
-      <a className={`item ${props.selectedItem === 'pokemon' ? 'active' : ''}`} 
+      <a 
+        // className={`item ${props.selectedItem === 'pokemon' ? 'active' : ''}`} 
+        className={`item ${setActive('pokemon')}`}
         onClick={handleOnClick}
         id="pokemon"> 
         <i className=" themeisle large icon" id="pokemon" />
