@@ -1,5 +1,12 @@
 import React from 'react'
 
+// props = {
+//   changeSelectedItem: (newItem) => {
+//     this.setState({ selectedItem: newItem })
+//   },
+//   selectedItem: 'profile',
+// }
+
 const MenuBar = (props) => {
 
   /*
@@ -13,22 +20,37 @@ const MenuBar = (props) => {
 
   */
 
+  const handleOnClick = (e) => {
+    const newItem = e.target.id;
+    props.changeSelectedItem(newItem);
+  }
+
   return (
     <div className="ui four item menu">
-      <a className="item active" id="profile">
+      <a 
+        className={`item ${props.selectedItem === 'profile' ? 'active' : ''}`}
+        id="profile"
+        onClick={handleOnClick} >
         <i className="user large icon" id="profile"/>
       </a>
 
-      <a className="item" id="photo">
-        <i className="photo large icon" id="photo"/>
+      <a 
+        className={`item ${props.selectedItem === 'photo' ? 'active' : ''}`}
+        id="photo"
+        onClick={handleOnClick} >
+        <i className="photo large icon" id="photo" />
       </a>
 
-      <a className="item" id="cocktail">
-        <i className="cocktail large icon" id="cocktail"/>
+      <a className={`item ${props.selectedItem === 'cocktail' ? 'active' : ''}`} 
+        id="cocktail" 
+        onClick={handleOnClick}>
+        <i className="cocktail large icon" id="cocktail" />
       </a>
 
-      <a className="item" id="pokemon"> 
-        <i className=" themeisle large icon" id="pokemon"/>
+      <a className={`item ${props.selectedItem === 'pokemon' ? 'active' : ''}`} 
+        onClick={handleOnClick}
+        id="pokemon"> 
+        <i className=" themeisle large icon" id="pokemon" />
       </a>
     </div>
   )
